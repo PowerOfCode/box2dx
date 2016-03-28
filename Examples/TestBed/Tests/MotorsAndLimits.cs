@@ -45,7 +45,7 @@ namespace TestBed
 				BodyDef bd = new BodyDef();
 				bd.Position.Set(0.0f, -10.0f);
 				ground = _world.CreateBody(bd);
-				ground.CreateShape(sd);
+				ground.CreateFixture(sd);
 			}
 
 			{
@@ -64,7 +64,7 @@ namespace TestBed
 
 				bd.Position.Set(3.0f, y);
 				body = _world.CreateBody(bd);
-				body.CreateShape(sd);
+				body.CreateFixture(sd);
 				body.SetMassFromShapes();
 
 				rjd.Initialize(prevBody, body, new Vec2(0.0f, y));
@@ -78,7 +78,7 @@ namespace TestBed
 
 				bd.Position.Set(9.0f, y);
 				body = _world.CreateBody(bd);
-				body.CreateShape(sd);
+				body.CreateFixture(sd);
 				body.SetMassFromShapes();
 
 				rjd.Initialize(prevBody, body, new Vec2(6.0f, y));
@@ -94,7 +94,7 @@ namespace TestBed
 				bd.Position.Set(-10.0f, 10.0f);
 				bd.Angle = 0.5f * Box2DX.Common.Settings.Pi;
 				body = _world.CreateBody(bd);
-				body.CreateShape(sd);
+				body.CreateFixture(sd);
 				body.SetMassFromShapes();
 
 				PrismaticJointDef pjd = new PrismaticJointDef();

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestBed</RootNamespace>
     <AssemblyName>TestBed</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -32,6 +32,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <BaseIntermediateOutputPath>..\..\Build\VCS\TestBed\obj\</BaseIntermediateOutputPath>
@@ -42,7 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -91,6 +92,17 @@
     <Compile Include="OpenGL Render\FTclass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\ApplyForce.cs" />
+    <Compile Include="Tests\Biped.cs" />
+    <Compile Include="Tests\BipedDef.cs" />
+    <Compile Include="Tests\BipedTest.cs" />
+    <Compile Include="Tests\Bridge.cs" />
+    <Compile Include="Tests\Buoyancy.cs" />
+    <Compile Include="Tests\Car.cs" />
+    <Compile Include="Tests\Chain.cs" />
+    <Compile Include="Tests\CollisionFiltering.cs" />
+    <None Include="Tests\CollisionProcessing.cs" />
+    <Compile Include="Tests\Web.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -100,6 +112,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,21 +133,34 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\CCDTest.cs" />
+    <Compile Include="Tests\CompoundShapes.cs" />
+    <Compile Include="Tests\ContactCallbackTest.cs" />
     <Compile Include="Tests\DistanceTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\Dominos.cs" />
+    <Compile Include="Tests\ElasticBody.cs" />
+    <Compile Include="Tests\Gears.cs" />
+    <Compile Include="Tests\LineJoint.cs" />
+    <Compile Include="Tests\MotorsAndLimits.cs" />
+    <Compile Include="Tests\PolyCollision.cs" />
+    <Compile Include="Tests\PolyShapes.cs" />
+    <Compile Include="Tests\Prismatic.cs" />
+    <Compile Include="Tests\Pulleys.cs" />
     <Compile Include="Tests\Pyramid.cs" />
+    <Compile Include="Tests\RaycastTest.cs" />
+    <Compile Include="Tests\Revolute.cs" />
+    <None Include="Tests\SensorTest.cs" />
+    <Compile Include="Tests\ShapeEditing.cs" />
     <Compile Include="Tests\SimpleTest.cs" />
+    <Compile Include="Tests\SliderCrank.cs" />
+    <Compile Include="Tests\TheoJansen.cs" />
+    <Compile Include="Tests\TimeOfImpact.cs" />
+    <Compile Include="Tests\VaryingFriction.cs" />
+    <Compile Include="Tests\VaryingRestitution.cs" />
     <Compile Include="Tests\VerticalStack.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Box2DX.csproj">
-      <Project>{C157BCA5-BAC7-455F-A7DE-59D506D46ECF}</Project>
-      <Name>Box2DX</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -152,6 +178,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Box2DX.csproj">
+      <Project>{c157bca5-bac7-455f-a7de-59d506d46ecf}</Project>
+      <Name>Box2DX</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

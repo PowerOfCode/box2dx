@@ -53,7 +53,7 @@ namespace TestBed
 				BodyDef bd = new BodyDef();
 				bd.Position.Set(0.0f, 10.0f);
 				_body1 = _world.CreateBody(bd);
-				_body1.CreateShape(sd);
+				_body1.CreateFixture(sd);
 			}
 
 			{
@@ -64,7 +64,7 @@ namespace TestBed
 				BodyDef bd = new BodyDef();
 				bd.Position.Set(0.0f, 10.0f);
 				_body2 = _world.CreateBody(bd);
-				_body2.CreateShape(sd);
+				_body2.CreateFixture(sd);
 				_body2.SetMassFromShapes();
 			}
 

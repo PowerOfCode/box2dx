@@ -48,7 +48,7 @@ namespace TestBed
 				bd.Position.Set(0.0f, 20.0f);
 				bd.Angle = 0.0f;
 				_body1 = _world.CreateBody(bd);
-				_shape1 = _body1.CreateShape(sd);
+				_shape1 = _body1.CreateFixture(sd).Shape;
 			}
 
 			{
@@ -60,7 +60,7 @@ namespace TestBed
 				bd.Position.Set(9.6363468f, 28.050615f);
 				bd.Angle = 1.6408679f;
 				_body2 = _world.CreateBody(bd);
-				_shape2 = (PolygonShape)_body2.CreateShape(sd);
+				_shape2 = (PolygonShape)_body2.CreateFixture(sd).Shape;
 				_body2.SetMassFromShapes();
 			}
 		}
@@ -87,27 +87,27 @@ namespace TestBed
 			sweep2.T0 = 0.0f;
 			sweep2.LocalCenter = _body2.GetLocalCenter();
 
-			float toi = Collision.TimeOfImpact(_shape1, sweep1, _shape2, sweep2);
+            float toi = Collision.TimeOfImpact(new TOIInput() { SweepA = sweep1, SweepB = sweep2 }, _shape1, _shape2);
 			
 			OpenGLDebugDraw.DrawString(5, _textLine, "toi = " + toi.ToString());
 			_textLine += 15;
 
 			XForm xf2 = new XForm();
-			sweep2.GetXForm(out xf2, toi);
+			sweep2.GetTransform(out xf2, toi);
 			int vertexCount = _shape2.VertexCount;
 			Vec2[] vertices = new Vec2[Box2DX.Common.Settings.MaxPolygonVertices];
-			Vec2[] localVertices = _shape2.GetVertices();
+			Vec2[] localVertices = _shape2.Vertices;
 			for (int i = 0; i < vertexCount; ++i)
 			{
 				vertices[i] = Box2DX.Common.Math.Mul(xf2, localVertices[i]);
 			}
 			_debugDraw.DrawPolygon(vertices, vertexCount, new Color(0.5f, 0.7f, 0.9f));
 
-			localVertices = _shape2.GetCoreVertices();
-			for (int i = 0; i < vertexCount; ++i)
-			{
-				vertices[i] = Box2DX.Common.Math.Mul(xf2, localVertices[i]);
-			}
+            //localVertices = _shape2.Vertices;
+            //for (int i = 0; i < vertexCount; ++i)
+            //{
+            //    vertices[i] = Box2DX.Common.Math.Mul(xf2, localVertices[i]);
+            //}
 			_debugDraw.DrawPolygon(vertices, vertexCount, new Color(0.5f, 0.7f, 0.9f));
 		}
 

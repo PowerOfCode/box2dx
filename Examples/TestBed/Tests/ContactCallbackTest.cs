@@ -50,93 +50,93 @@ namespace TestBed
 			sd.Vertices[0].Set(10, 10);
 			sd.Vertices[1].Set(9, 7);
 			sd.Vertices[2].Set(10, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(9, 7);
 			sd.Vertices[1].Set(8, 0);
 			sd.Vertices[2].Set(10, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(9, 7);
 			sd.Vertices[1].Set(8, 5);
 			sd.Vertices[2].Set(8, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(8, 5);
 			sd.Vertices[1].Set(7, 4);
 			sd.Vertices[2].Set(8, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(7, 4);
 			sd.Vertices[1].Set(5, 0);
 			sd.Vertices[2].Set(8, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(7, 4);
 			sd.Vertices[1].Set(5, 3);
 			sd.Vertices[2].Set(5, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(5, 3);
 			sd.Vertices[1].Set(2, 2);
 			sd.Vertices[2].Set(5, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(2, 2);
 			sd.Vertices[1].Set(0, 0);
 			sd.Vertices[2].Set(5, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[0].Set(2, 2);
 			sd.Vertices[1].Set(-2, 2);
 			sd.Vertices[2].Set(0, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-2, 2);
 			sd.Vertices[1].Set(0, 0);
 			sd.Vertices[0].Set(-5, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-5, 3);
 			sd.Vertices[1].Set(-2, 2);
 			sd.Vertices[0].Set(-5, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-7, 4);
 			sd.Vertices[1].Set(-5, 3);
 			sd.Vertices[0].Set(-5, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-7, 4);
 			sd.Vertices[1].Set(-5, 0);
 			sd.Vertices[0].Set(-8, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-8, 5);
 			sd.Vertices[1].Set(-7, 4);
 			sd.Vertices[0].Set(-8, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-9, 7);
 			sd.Vertices[1].Set(-8, 5);
 			sd.Vertices[0].Set(-8, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-9, 7);
 			sd.Vertices[1].Set(-8, 0);
 			sd.Vertices[0].Set(-10, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.Vertices[2].Set(-10, 10);
 			sd.Vertices[1].Set(-9, 7);
 			sd.Vertices[0].Set(-10, 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.SetAsBox(.5f, 6, new Vec2(10.5f, 6), 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			sd.SetAsBox(.5f, 6, new Vec2(-10.5f, 6), 0);
-			_world.GetGroundBody().CreateShape(sd);
+			_world.GetGroundBody().CreateFixture(sd);
 
 			BodyDef bd = new BodyDef();
 			bd.Position.Set(9.5f, 60);
@@ -157,7 +157,7 @@ namespace TestBed
 			cd.Vertices[7].Set(-0.5f * s, 0.0f);
 			cd.Density = 1.0f;
 
-			_ball_shape = _ball.CreateShape(cd);
+			_ball_shape = _ball.CreateFixture(cd).Shape;
 			_ball.SetMassFromShapes();
 		}
 

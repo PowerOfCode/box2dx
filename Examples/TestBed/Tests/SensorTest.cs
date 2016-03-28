@@ -31,7 +31,7 @@ namespace TestBed
 {
 	public class SensorTest : Test
 	{
-		Shape _sensor;
+		Fixture _sensor;
 
 		public SensorTest()
 		{
@@ -43,13 +43,13 @@ namespace TestBed
 
 				PolygonDef sd = new PolygonDef();
 				sd.SetAsBox(50.0f, 10.0f);
-				ground.CreateShape(sd);
+				ground.CreateFixture(sd);
 
 				CircleDef cd = new CircleDef();
 				cd.IsSensor = true;
 				cd.Radius = 5.0f;
 				cd.LocalPosition.Set(0.0f, 20.0f);
-				_sensor = ground.CreateShape(cd);
+				_sensor = ground.CreateFixture(cd);
 			}
 
 			{
@@ -64,7 +64,7 @@ namespace TestBed
 
 					Body body = _world.CreateBody(bd);
 
-					body.CreateShape(sd);
+					body.CreateFixture(sd);
 					body.SetMassFromShapes();
 				}
 			}
@@ -88,11 +88,11 @@ namespace TestBed
 				Shape shape2 = point.shape2;
 				Body other;
 
-				if (shape1 == _sensor)
+				if (shape1 == _sensor.Shape)
 				{
 					other = shape2.GetBody();
 				}
-				else if (shape2 == _sensor)
+				else if (shape2 == _sensor.Shape)
 				{
 					other = shape1.GetBody();
 				}

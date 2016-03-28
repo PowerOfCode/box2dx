@@ -40,7 +40,7 @@ namespace TestBed
 			    BodyDef bd = new  BodyDef() ;
 			    bd.Position.Set(0.0f, -20.0f);
 			    Body ground = _world.CreateBody(bd);
-			    ground.CreateShape(sd);
+			    ground.CreateFixture(sd);
 		    }
 
 		    {
@@ -52,7 +52,7 @@ namespace TestBed
 			    bd.Angle = -0.25f;
 
 			    Body ground = _world.CreateBody(bd);
-			    ground.CreateShape(sd);
+			    ground.CreateFixture(sd);
 		    }
 
 		    {
@@ -63,7 +63,7 @@ namespace TestBed
 			    bd.Position.Set(10.5f, 19.0f);
 
 			    Body ground = _world.CreateBody(bd);
-			    ground.CreateShape(sd);
+			    ground.CreateFixture(sd);
 		    }
 
 		    {
@@ -75,7 +75,7 @@ namespace TestBed
 			    bd.Angle = 0.25f;
 
 			    Body ground = _world.CreateBody(bd);
-			    ground.CreateShape(sd);
+			    ground.CreateFixture(sd);
 		    }
 
 		    {
@@ -86,7 +86,7 @@ namespace TestBed
 			    bd.Position.Set(-10.5f, 11.0f);
 
 			    Body ground = _world.CreateBody(bd);
-			    ground.CreateShape(sd);
+			    ground.CreateFixture(sd);
 		    }
 
 		    {
@@ -98,7 +98,7 @@ namespace TestBed
 			    bd.Angle = -0.25f;
 
 			    Body ground = _world.CreateBody(bd);
-			    ground.CreateShape(sd);
+			    ground.CreateFixture(sd);
 		    }
 
 		    {
@@ -115,7 +115,7 @@ namespace TestBed
 				    Body body = _world.CreateBody(bd);
 
 				    sd.Friction = friction[i];
-				    body.CreateShape(sd);
+				    body.CreateFixture(sd);
 				    body.SetMassFromShapes();
 			    }
 		    }
